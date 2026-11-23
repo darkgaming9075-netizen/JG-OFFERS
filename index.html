@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAY OFFERS | Affiliate Platform</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#080b14;color:#eef2ff}
+.app{display:flex;min-height:100vh}
+.sidebar{width:245px;background:#101626;border-right:1px solid #263047;padding:24px 15px;position:fixed;top:0;bottom:0;left:0}
+.logo{font-size:24px;font-weight:900;color:#a78bfa;margin:8px 10px 35px}
+.logo span{color:white}
+.nav{display:block;width:100%;padding:14px;margin:5px 0;border:0;border-radius:10px;background:transparent;color:#9ca9c0;text-align:left;font-size:14px;cursor:pointer}
+.nav.active,.nav:hover{background:#29234a;color:#c4b5fd}
+.main{margin-left:245px;padding:28px;width:calc(100% - 245px)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;gap:10px}
+h1{font-size:25px}
+.muted{color:#8d9ab2;font-size:13px;margin-top:7px}
+.profile{background:#171f31;border:1px solid #29354d;padding:11px 15px;border-radius:12px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:24px}
+.card{background:#111a2b;border:1px solid #26334b;padding:20px;border-radius:15px}
+.card small{color:#9aa8c0}
+.number{font-size:27px;font-weight:800;margin-top:14px}
+.purple{color:#b69aff}
+.green{color:#4ade80}
+.blue{color:#60a5fa}
+.orange{color:#fbad65}
+.panel{background:#111a2b;border:1px solid #26334b;border-radius:15px;padding:20px;margin-bottom:20px}
+.panel h3{font-size:16px;margin-bottom:17px}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{text-align:left;padding:14px 10px;border-bottom:1px solid #26334b;font-size:13px}
+th{color:#96a4bc}
+td{color:#e3e9f5}
+.status{background:#153a2c;color:#4ade80;padding:5px 9px;border-radius:20px;font-size:11px}
+.btn{background:#7656dc;color:white;border:0;padding:12px 17px;border-radius:9px;cursor:pointer;font-weight:bold}
+.btn:hover{background:#9274ef}
+input{background:#080f1e;color:white;border:1px solid #34415a;padding:12px;border-radius:8px;width:100%;margin:8px 0}
+.content{display:none}
+.content.active{display:block}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.mobile{display:none}
+.notice{background:#251e3e;border:1px solid #57418d;padding:13px;border-radius:10px;color:#cbbcff;font-size:13px;line-height:1.6;margin-bottom:20px}
+@media(max-width:850px){
+.sidebar{width:70px;padding:15px 7px}
+.logo{font-size:0;margin:12px 0 30px;text-align:center}
+.logo:first-letter{font-size:25px}
+.nav{font-size:0;text-align:center;padding:15px 2px}
+.nav b{font-size:19px}
+.main{margin-left:70px;width:calc(100% - 70px);padding:18px 12px}
+.grid{grid-template-columns:repeat(2,1fr);gap:9px}
+.card{padding:14px}
+.number{font-size:22px}
+h1{font-size:21px}
+}
+@media(max-width:420px){.profile{font-size:11px}.grid{gap:8px}.number{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<div class="logo">J<span>AY</span> OFFERS</div>
+<button class="nav active" onclick="show('dashboard',this)"><b>⌂</b> Dashboard</button>
+<button class="nav" onclick="show('campaigns',this)"><b>▣</b> Campaigns</button>
+<button class="nav" onclick="show('tracking',this)"><b>↗</b> Tracking Links</button>
+<button class="nav" onclick="show('conversions',this)"><b>◉</b> Conversions</button>
+<button class="nav" onclick="show('earnings',this)"><b>₹</b> Earnings</button>
+<button class="nav" onclick="show('postback',this)"><b>⌁</b> Postback</button>
+<button class="nav" onclick="show('settings',this)"><b>⚙</b> Settings</button>
+</aside>
+
+<main class="main">
+<header class="top">
+<div><h1 id="heading">Dashboard</h1><p class="muted">Welcome to your affiliate workspace</p></div>
+<div class="profile">👤 Admin Panel</div>
+</header>
+
+<div class="notice">✦ JAY OFFERS platform preview. Numbers shown below are sample data. Real tracking, login, database and postbacks will be connected in the next steps.</div>
+
+<section id="dashboard" class="content active">
+<div class="grid">
+<div class="card"><small>Total Clicks</small><div class="number blue">12,580</div></div>
+<div class="card"><small>Conversions</small><div class="number green">348</div></div>
+<div class="card"><small>Total Earnings</small><div class="number purple">₹42,850</div></div>
+<div class="card"><small>Active Campaigns</small><div class="number orange">12</div></div>
+</div>
+<div class="panel">
+<h3>Recent Activity</h3>
+<table><thead><tr><th>Activity</th><th>Status</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Campaign tracking</td><td><span class="status">Demo</span></td><td>Preview data</td></tr>
+<tr><td>Postback integration</td><td>Pending</td><td>Network setup required</td></tr>
+<tr><td>Promoter accounts</td><td>Pending</td><td>Database required</td></tr>
+</tbody></table>
+</div>
+<div class="panel"><h3>Platform Overview</h3><p class="muted">Manage campaigns, tracking links, conversions and promoter payouts from one place.</p></div>
+</section>
+
+<section id="campaigns" class="content">
+<div class="panel"><h3>Campaign Management</h3>
+<p class="muted">Your campaigns will appear here after admin adds them.</p>
+<br><table><thead><tr><th>Campaign</th><th>Category</th><th>Status</th></tr></thead>
+<tbody><tr><td>Sample Demat Offer</td><td>Finance</td><td><span class="status">Preview</span></td></tr></tbody></table>
+</div></section>
+
+<section id="tracking" class="content">
+<div class="panel"><h3>Create Tracking Link</h3>
+<p class="muted">Enter your campaign destination URL.</p>
+<input id="destination" placeholder="Paste affiliate campaign URL here">
+<button class="btn" onclick="makeLink()">Generate Preview Link</button>
+<input id="generated" placeholder="Your preview link will appear here" readonly>
+<button class="btn" onclick="copyLink()">Copy Link</button>
+<p class="muted">This is a local preview only. Server-side click tracking will be added later.</p>
+</div></section>
+
+<section id="conversions" class="content">
+<div class="panel"><h3>Conversion Reports</h3>
+<table><thead><tr><th>Event</th><th>Click ID</th><th>Status</th></tr></thead>
+<tbody><tr><td>Sample KYC</td><td>DEMO123</td><td><span class="status">Demo</span></td></tr></tbody></table>
+<p class="muted">Real conversions will arrive after verified network postback integration.</p>
+</div></section>
+
+<section id="earnings" class="content">
+<div class="panel"><h3>Earnings & Payouts</h3>
+<div class="number green">₹0.00</div><p class="muted">Real payable balance will be calculated from verified conversions.</p>
+</div></section>
+
+<section id="postback" class="content">
+<div class="panel"><h3>Postback Integration</h3>
+<p class="muted">Your server endpoint will be created and displayed here after backend setup.</p><br>
+<input value="Not configured yet" readonly>
+<p class="muted">Do not paste this preview page URL into an affiliate network. A secure server endpoint and network click-ID macros are required.</p>
+</div></section>
+
+<section id="settings" class="content">
+<div class="panel"><h3>Platform Settings</h3>
+<p>Platform: JAY OFFERS</p><br><p>Version: 1.0 Preview</p><br><p>Hosting: Netlify (to be connected)</p><br><p>Database: Not connected</p></div>
+</section>
+</main>
+</div>
+<script>
+function show(id,button){
+document.querySelectorAll('.content').forEach(x=>x.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));
+button.classList.add('active');
+document.getElementById('heading').innerText=button.innerText.trim();
+}
+function makeLink(){
+let url=document.getElementById('destination').value.trim();
+if(!url){alert('Please paste your campaign URL first');return;}
+try{new URL(url)}catch(e){alert('Please enter a valid URL including https://');return;}
+document.getElementById('generated').value=url;
+alert('Preview generated. Real tracking will be connected in the backend setup.');
+}
+function copyLink(){
+let field=document.getElementById('generated');
+if(!field.value){alert('Generate a preview first');return;}
+field.select();
+if(navigator.clipboard){navigator.clipboard.writeText(field.value).then(()=>alert('Copied!'))}
+else{document.execCommand('copy');alert('Copied!')}
+}
+</script>
+</body>
+  </html>
+                                       
